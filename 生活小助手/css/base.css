@@ -1,0 +1,191 @@
+.weather img.sun {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.weather img.err {
+   display: block;
+   margin:20px;
+}
+
+
+
+.weather ul {
+    list-style: none;
+}
+
+.list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter,
+.list-leave-to
+/* .list-leave-active for below version 2.1.8 */
+
+    {
+    opacity: 0;
+    transform: translateX(300px);
+}
+
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+
+
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.robot img.sister {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.robot li img {
+    height: 30px;
+    /* margin:20px; */
+}
+
+
+
+.robot ul {
+    list-style: none;
+}
+
+.list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter,
+.list-leave-to
+/* .list-leave-active for below version 2.1.8 */
+
+    {
+    opacity: 0;
+    transform: translateX(300px);
+}
+
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.music{
+    height: 580px;
+    display: flex;
+}
+.music .left{
+    width: 500px;
+    background-color: skyblue;
+    overflow-y: scroll;
+}
+.music .left input{
+    display: block;
+    margin: 10px auto;
+    height: 30px;
+    border-radius: 10px;
+    width: 400px;
+    padding-left: 20px;
+    border:none;
+}
+.music .left ul{
+    list-style: none;
+}
+.music .left ul li{
+    cursor: pointer;
+}
+.music .left ul li:hover{
+    color:white;
+    background-color: hotpink;
+    font-weight: 700;
+    /* font-size:22px; */
+}
+
+.music .right{
+    flex:1;
+    background-color: hotpink;
+}
+.music .right img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto 0;
+}
+.music .right audio{
+    display: block;
+    margin: 0 auto;
+}
+
+.auto-rotate{
+    animation: rotate linear infinite 1s;
+    animation-play-state: paused;
+}
+.play{
+    animation-play-state: running;
+}
+
+@keyframes rotate{
+    from{}
+    50%{
+        transform: rotateZ(180deg) scale(1.1,1.1);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+.list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all .1s;
+}
+
+.list-enter,
+.list-leave-to
+/* .list-leave-active for below version 2.1.8 */
+
+    {
+    opacity: 0;
+    transform: translatex(300px);
+}

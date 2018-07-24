@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+</head>
+
+<body>
+    <div id="app">
+        <robot-box></robot-box>
+    </div>
+</body>
+
+</html>
+<script src="./lib/vue.js"></script>
+<script src="./lib/axios.min.js"></script>
+<!-- 定义模板 -->
+<script id='robot' type="text/html">
+    <div class="robot">
+        <img class="sister" src="./img/littleSister.jpg" alt="">
+        <input type="text" placeholder="想跟小姐姐说啥" v-model.trim="message" @keyup.enter="cast">
+        <transition-group v-show="castList.length!=0" name="list" tag="ul">
+            <li @dblclick="remove(index)" :style='{transitionDelay:index*300+"ms"}' v-for="(item, index) in castList" :key="item.info">
+                <img :src="item.isMe ? './img/brother.jpg' : './img/sister.jpg' " alt="">:{{item.info}}
+            </li>
+        </transition-group>
+        <!-- <transition name="bounce">
+            <img class="err" v-if="isShow"  src="./img/noExist.jpg" alt="">
+        </transition> -->
+    </div>
+</script>
+<script>
+    Vue.component('robot-box', {
+        template: '#robot',
+        data: function () {
+            return {
+                message: "",
+                castList: [],
+                // isShow: false
+            }
+        },
+        methods: {
+            cast() {
+                //先加入自己的信息
+                this.castList.push({
+                    info: this.message,
+                    isMe: true
+                })
+                const params = new URLSearchParams();
+                params.append('key', '5ccb2c69257c4d279bef29dd4cf5a4a5');
+                params.append('info', this.message);
+                axios.post('http://www.tuling123.com/openapi/api', params)
+                    .then(response => {
+                        // console.log(response);
+
+                        this.castList.push({
+                            info: response.data.text,
+                            isMe: false
+                        })
+                    })
+                    .catch(response => {
+                        console.log(response);
+                    })
+                this.message = '';
+            },
+            remove(index) {
+                this.castList.splice(index, 1);
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: '#app'
+    })
+</script>
